@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
+import Background from "./components/background/Background";
+import Hex from "./components/hex/Hex";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <ul>
+          <li>
+            <Link to="/">HOME</Link>
+          </li>
+          <li>
+            <Link to="/hex">HEX</Link>
+          </li>
+        </ul>
+        <Route exact path="/" component={Background} />
+        <Route exact path="/hex" component={Hex} />
+      </div>
+    </Router>
   );
 }
 
 export default App;
+
+
+
